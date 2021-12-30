@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:wolfram"
+
+    - path: "wolfram/Main.hs"
+      component: "wolfram:exe:wolfram"
+
+    - path: "wolfram/Paths_wolfram.hs"
+      component: "wolfram:exe:wolfram"
+
+    - path: "test"
+      component: "wolfram:test:spec"
