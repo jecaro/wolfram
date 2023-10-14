@@ -7,8 +7,7 @@ import qualified Wolfram as W (next, toPattern, toString)
 import Prelude hiding (lines)
 
 main :: IO ()
-main = do
-    withError . (fmap runInIO . O.fromStrings) =<< getArgs
+main = withError . (fmap runInIO . O.fromStrings) =<< getArgs
   where
     runInIO options =
         sequenceA_ . withDelay (O.optDelay options) . output $ run options

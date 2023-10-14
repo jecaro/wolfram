@@ -1,5 +1,3 @@
-{-# LANGUAGE TupleSections #-}
-
 module Options (Options (..), Error (..), fromStrings, render, usage) where
 
 import Data.Bifunctor (Bifunctor (second))

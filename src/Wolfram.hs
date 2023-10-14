@@ -1,6 +1,6 @@
 module Wolfram (fromBinary, toBinary, next, toString, toPattern) where
 
-import Data.Foldable (Foldable (fold), toList)
+import Data.Foldable (toList)
 
 toBinary :: Int -> [Bool]
 toBinary 0 = []
@@ -35,7 +35,7 @@ next pattern current = go $ [False, False] <> current <> [False, False]
     go _ = []
 
 toString :: [Bool] -> String
-toString l = fold (toChar <$> l)
+toString = foldMap toChar
   where
     toChar True = "*"
     toChar False = " "

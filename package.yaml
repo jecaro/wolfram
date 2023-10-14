@@ -38,3 +38,4 @@ tests:
 default-extensions:
   - OverloadedStrings
   - ScopedTypeVariables
+  - TupleSections
