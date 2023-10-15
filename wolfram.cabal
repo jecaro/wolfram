@@ -1,0 +1,46 @@
+cabal-version: 2.2
+
+name: wolfram
+version: 0.1.0.0
+build-type: Simple
+
+common defaults
+  default-language: Haskell2010
+  default-extensions:
+    OverloadedStrings
+    ScopedTypeVariables
+    TupleSections
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wpartial-fields
+    -Wredundant-constraints
+  build-depends: base
+
+library
+  import: defaults
+  exposed-modules:
+    Options
+    Wolfram
+  hs-source-dirs: src
+
+executable wolfram
+  import: defaults
+  main-is: Main.hs
+  hs-source-dirs: wolfram
+  build-depends: wolfram
+
+test-suite spec
+  import: defaults
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+    OptionsSpec
+    WolframSpec
+  hs-source-dirs: test
+  build-depends:
+    hspec,
+    wolfram
