@@ -57,13 +57,16 @@ render MissingRule = "You must define a rule"
 
 usage :: String -> String
 usage progName =
-    progName
-        <> " --rule n\
-           \ [--start n]\
-           \ [--lines n]\
-           \ [--window w]\
-           \ [--move m]\
-           \ [--delay d]"
+    unlines
+        [ progName <> " --rule <RULE> [OPTIONS]"
+        , "Options:"
+        , "--rule   <RULE>   the rule to run"
+        , "--start  <START>  starting line (default 0)"
+        , "--lines  <LINES>  number of lines to output, 0 to never stop (default 0)"
+        , "--window <WINDOW> width of the window (default 80)"
+        , "--move   <MOVE>   offset to apply to the window (default 0)"
+        , "--delay  <DELAY>  delay between each line in ms (default 100)"
+        ]
 
 getRule :: [String] -> Either Error (Int, [String])
 getRule (arg@"--rule" : ruleStr : xs) = withError ((,xs) <$> readMaybe ruleStr)
