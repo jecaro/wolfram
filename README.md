@@ -9,7 +9,7 @@ automaton][Elementary_cellular_automaton] in Haskell.
 
 # Hacking
 
-The project can be build with [nix][nix].
+The project can be built with [nix][nix].
 
 Install with:
 
