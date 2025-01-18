@@ -6,9 +6,9 @@
       wolfram = pkgs.haskellPackages.callCabal2nix "wolfram" ./. { };
     in
     {
-      defaultPackage.x86_64-linux = wolfram;
+      packages.x86_64-linux.default = wolfram;
 
-      devShell.x86_64-linux =
+      devShells.x86_64-linux.default =
         pkgs.haskellPackages.shellFor {
           packages = p: [ wolfram ];
           withHoogle = true;
@@ -17,8 +17,6 @@
             pkgs.haskellPackages.ghcid
             pkgs.haskellPackages.cabal-install
           ];
-          # Change the prompt to show that you are in a devShell
-          shellHook = "export PS1='\\[\\e[1;34m\\]dev > \\[\\e[0m\\]'";
         };
     };
 }
